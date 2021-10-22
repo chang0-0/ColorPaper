@@ -1,0 +1,52 @@
+/* 배너 로고 설정 */
+.logo {
+  height: 3.5rem;
+  background-color: rgb(255, 252, 215);
+  width: auto;
+  line-height: 3.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+
+  font-family: "Yfont";
+
+  h2 {
+    color: coral;
+    padding-left: 80px;
+    margin-top: 30px;
+    font-family: "Roboto Medium";
+  }
+}
+
+/* 아래 홈 배너 이미지 */
+.HomeImageContainer {
+  margin-top: 40px;
+  width: auto;
+  height: auto;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2em;
+
+  /* 이미지 내부 글자 */
+  #ImageLetter {
+    width: inherit;
+    height: inherit;
+    margin-top: 140px;
+    left: 59vw;
+    top: 10vh;
+    position: absolute;
+    color: #ffffff;
+    font-family: "tway_sky";
+    font-weight: 400;
+    font-size: 6vw;
+  }
+
+  img {
+    width: 100%;
+
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+  }
+}

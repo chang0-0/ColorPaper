@@ -1,0 +1,25 @@
+$lightblue: #3ea8ff;
+$deepblue: #156fb9;
+$darkblue: rgb(12, 86, 129);
+
+.Map {
+  display: flex;
+  position: relative;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  font-family: "Roboto-Bold" "NanumSquare", sans-serif;
+  //border: 2px solid rgb(255, 150, 112);
+  overflow: hidden;
+
+  .MapContainer {
+    //width: 450px;
+    //height: 650px;
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    transform: scale(1);
+  }
+}

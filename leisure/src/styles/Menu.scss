@@ -1,0 +1,153 @@
+$lightblue: #3ea8ff;
+$deepblue: #156fb9;
+$darkblue: rgb(12, 86, 129);
+
+//⭐⭐⭐⭐아주 아주 중요한 사실⭐⭐⭐
+// z-index를 설정하기 위해서는 position: relative가 필수적임.
+
+.MenuSection {
+  height: 40px;
+  font-size: 15px;
+  //margin-top: -24px;
+  overflow: hidden;
+  color: white;
+  overflow: visible;
+  z-index: 400;
+
+  .MenuButton {
+    margin-top: 10px;
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 10%);
+    -webkit-transform: scaleX(29%, 100%);
+    color: $darkblue;
+    border-radius: 20%;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.1s all linear;
+    border: solid 0.1em rgb(192, 192, 192);
+    box-shadow: 1px 1px rgb(206, 206, 206);
+
+    // &:hover {
+    //   background: #156fb9;
+    // }
+    // &:active {
+    //   background: #3ea8ff;
+    // }
+
+    .closeButton {
+      display: flex;
+      font-size: 30px;
+      position: relative;
+      color: red;
+
+      &:hover {
+        .MenuSection {
+          background-color: #3ea8ff;
+        }
+      }
+    }
+
+    .openButton {
+      display: flex;
+      font-size: 40px;
+      display: flex;
+      font-size: 30px;
+      &:hover {
+        .MenuButton {
+          background: #ff9696;
+        }
+      }
+    }
+
+    &.visible {
+      .openButton {
+        display: flex;
+      }
+
+      .closeButton {
+        display: flex;
+        color: red;
+        border: none;
+        z-index: 4;
+      }
+
+      .MenuSecion {
+        background-color: white;
+        width: 20px;
+        overflow: visible;
+      }
+
+      background: #ff5151;
+      &:hover {
+        background: #ff9696;
+      }
+      &:active {
+        background: #fa5252;
+      }
+      transform: translate(-50%, 50%);
+      transition: 0.3s all linear;
+      animation-duration: comparable(10, 10);
+    }
+  }
+
+  .hideMenuSection {
+    overflow: hidden;
+    height: auto;
+    background-color: #ffffff;
+    z-index: 204;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    object-fit: contain;
+    border-bottom: 1px solid #424242;
+    transition: all 0.5s;
+
+    .hideMenuUl {
+      z-index: 40;
+      align-items: center; //수직 중앙 정렬
+      justify-content: center; //수평 중앙 정렬
+      text-align: center;
+      display: inline;
+      flex-direction: row;
+      position: relative;
+      color: white;
+
+      .Menulist {
+        text-align: center;
+        font-size: 25px;
+        font-family: "BebasNeue-Regular";
+        font-weight: 200;
+        letter-spacing: 2px;
+        text-decoration: none;
+        padding-bottom: 2vh;
+
+        .MenuLink {
+          color: black;
+          font-weight: 600;
+          text-decoration: none;
+          z-index: 40;
+
+          &:hover {
+            text-decoration: underline;
+            transform: translate(-50%, 20%);
+            transition: 0.3s;
+          }
+        }
+
+        &:nth-child(1) {
+          padding-top: 3.4vh;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+.Mappage {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  font-family: "Roboto-Bold" "NanumSquare", sans-serif;
+  z-index: 0;
+  background: #ffffff;
+  overflow: hidden;
+
+  .MappageHeader {
+    z-index: 1004;
+    position: relative;
+    width: auto;
+    height: 78px;
+
+    .MappageMenu {
+      z-index: 1000;
+      position: relative;
+    }
+
+    .MapHeadLine {
+      display: inline-block;
+      width: 100%;
+      height: 3px;
+      background: #ffffff;
+      vertical-align: middle;
+      margin-top: -5px;
+      margin-right: 40px;
+      overflow: hidden;
+    }
+  }
+
+  .MapBody {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+
+    .MapSection {
+      width: 50vw;
+      height: 91vh;
+      margin-top: 2.5px;
+    }
+  }
+}

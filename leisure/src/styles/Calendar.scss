@@ -1,0 +1,121 @@
+$lightblue: #3ea8ff;
+$deepblue: #156fb9;
+$darkblue: rgb(12, 86, 129);
+
+.Calendar {
+  margin-bottom: 140px;
+  align-items: center; //수직 중앙 정렬
+  justify-content: center; //수평 중앙 정렬
+  text-align: center;
+  height: 20vh;
+  width: 100%;
+  overflow: initial;
+
+  .Year-MonthList {
+    font-family: "SEBANG";
+    font-style: italic;
+    color: #1864ab;
+    .Year {
+      font-size: 2.4rem;
+    }
+
+    .Month {
+      font-size: 1.55rem;
+    }
+  }
+
+  /* 요일과 날짜를 표시하는 컨테이너 (List)*/
+  .DayList {
+    position: relative;
+    width: auto;
+    height: 3.5rem;
+    font-size: 1.4rem;
+    color: #005096;
+    float: left;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    left: 17%;
+
+    .daylistSector {
+      width: 40px;
+      height: 70px;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      float: left;
+      margin-left: 4em;
+      cursor: pointer;
+      width: 70px;
+      height: 110px;
+      border-radius: 40px;
+      padding-top: 40px;
+
+      .Sunday {
+        color: red !important;
+      }
+
+      .Saturday {
+        color: $deepblue !important;
+      }
+
+      &:hover {
+        background: #224861;
+        color: white;
+        .weak {
+          color: white;
+        }
+      }
+
+      &:nth-child(1) {
+        border: 0.04em solid rgb(12, 86, 129);
+      }
+
+      .weak {
+        font-family: "Nanum Myeongjo";
+        font-size: 0.8em;
+        align-items: center; //수직 중앙 정렬
+        justify-content: center; //수평 중앙 정렬
+        color: black;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .day {
+        font-weight: bold;
+      }
+    }
+
+    /* 버튼 이벤트를 위해서 버튼을 만들었지만 
+    아이콘에서 이벤트 처리를 하기위해 보이지는 않도록 만들었음 */
+
+    .CalendarIconContainer {
+      align-items: center; //수직 중앙 정렬
+      justify-content: center; //수평 중앙 정렬
+      position: absolute;
+      width: 150px;
+      height: 100px;
+      font-style: bold;
+      cursor: pointer;
+      color: #353535;
+
+      .CalendarIconText {
+        font-size: 23px;
+      }
+
+      .CalendarIconSpan {
+        position: absolute;
+        left: 50%;
+        right: 40%;
+        margin-top: 40px;
+
+        .CalendarIcon {
+          color: #353535;
+          margin-bottom: -12px;
+          font-size: 3rem;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

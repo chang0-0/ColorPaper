@@ -1,0 +1,150 @@
+$lightblue: #3ea8ff;
+$deepblue: #156fb9;
+$darkblue: rgb(12, 86, 129);
+
+.Register {
+  width: 100%;
+  height: 100%;
+  margin-top: 0;
+  font-family: "Roboto-Bold" "NanumSquare", sans-serif;
+
+  .Header {
+    z-index: 1004;
+    position: relative;
+    margin-top: -20px;
+  }
+
+  .RegisterBody {
+    position: relative;
+    align-items: center; //수직 중앙 정렬
+    justify-content: center; //수평 중앙 정렬
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    background: linear-gradient(130deg, rgb(88, 150, 221), rgb(255, 171, 171));
+    background-size: cover;
+    margin: 3px 0 0 0;
+    margin-top: 0;
+
+    .SidebarMenu {
+      opacity: 0.85;
+
+      .SidebarMenuButton {
+        color: white;
+      }
+      .CloseButton {
+        color: white !important;
+      }
+    }
+
+    .LogoSection {
+      .Logo {
+        font-family: "Roboto Bold";
+        position: absolute;
+        transform: rotate(270deg);
+        top: 36vh;
+        left: 100px;
+        font-size: 9vw;
+        letter-spacing: -0.5px;
+        text-align: center;
+        font-weight: 1500;
+        color: #12203a;
+      }
+
+      .Logo_deco {
+        position: absolute;
+        top: 47vh;
+        left: 28vh;
+        width: 44vw;
+        height: 0.3vh;
+        background: #12203a;
+        transform: rotate(270deg);
+        padding: 0;
+      }
+    }
+
+    .RegisterSection {
+      align-items: center;
+      justify-content: center;
+      display: inline-block;
+      width: 70%;
+      z-index: 1000;
+      left: 50%;
+      top: 40%;
+      position: fixed;
+
+      input {
+        border: none;
+        background: none;
+        border-bottom: 2.5px solid rgb(78, 78, 78);
+        line-height: 40px;
+        font-size: 18px;
+        padding: 10px;
+        color: rgb(255, 255, 255);
+        font-size: 20px;
+
+        &:focus::-webkit-input-placeholder {
+          color: transparent;
+        }
+
+        &:focus {
+          outline: none;
+        }
+
+        &::-webkit-input-placeholder {
+          color: rgb(255, 255, 255);
+        }
+      }
+
+      .inputPW {
+        margin-top: 20px;
+        margin-bottom: 40px;
+      }
+
+      span {
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 30px;
+        font-weight: 600;
+        text-align: center;
+        color: #282828;
+        cursor: pointer;
+        //background-color: #eee;
+        transition-duration: 0.2s;
+        padding: 10px 20px 10px 20px;
+        //margin-left: -20px;
+        margin-right: 30px;
+
+        &:hover {
+          background: #353535;
+          color: #fff;
+        }
+      }
+
+      .forgot {
+        all: unset; //부모 속성 제거
+        color: #282828;
+        cursor: pointer;
+        margin-left: 20px;
+        text-decoration: underline;
+        font-size: 18px;
+        font-weight: 600;
+      }
+    }
+
+    .copyright {
+      position: absolute;
+      bottom: 12px;
+      text-align: center;
+      left: 250px;
+      font-size: 17px;
+      letter-spacing: -0.5px;
+      font-weight: 800;
+      color: #333333;
+      text-align: center;
+    }
+  }
+}
