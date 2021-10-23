@@ -9,17 +9,13 @@ datasource db {
 generator client {
   provider = "prisma-client-js"
 }
+ 
+ model User {
+    id           Int    @id @default(autoincrement())
+    username     String @unique
+    passwordHash String
+  
+ }
 
-model User {
-  id Int @id @default(autoincrement()) 
-  username String @unique 
-  passwordHash String 
-  Meet Meet[]
-}
 
-model Meet {
-  id Int @id @default(autoincrement())
-  user User @relation(fields: [userid], references: [id])
-  userid Int
-  channelId String
-}
+

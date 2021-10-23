@@ -1,8 +1,9 @@
-require('dotenv').config();
+require("dotenv").config();
 
-const { fastify } = require('fastify');
+const { fastify } = require("fastify");
+const routes = require("./routes");
 const app = fastify({ logger: true });
 
-app.listen(process.env.PORT).then((value) => {
-  console.log(value);
-});
+app.register(routes);
+
+app.listen(process.env.PORT);

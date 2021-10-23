@@ -1,19 +1,20 @@
 {
-  "name": "leisure-server",
+  "name": "mooyaho-meet-server",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "@koa/router": "^10.1.1",
-    "@prisma/client": "^3.3.0",
+    "@prisma/client": "^3.2.1",
+    "bcrypt": "^5.0.1",
     "dotenv": "^10.0.0",
     "fastify": "^3.22.1",
-    "koa": "^2.13.4"
+    "nodemon": "^2.0.14"
   },
   "script": {
-    "start": "node main.js"
+    "start": "node main.js",
+    "dev": "nodemon main.js"
   },
   "devDependencies": {
-    "prisma": "3.3.0"
+    "prisma": "3.2.1"
   }
 }
