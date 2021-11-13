@@ -11,8 +11,6 @@ import Month from "react-live-clock";
 import { BiCalendar } from "react-icons/bi";
 import cn from "classnames";
 
-let now = new Date();
-
 //오늘 기준으로 이번달의 마지막 날까지 출력하기위한 반복 함수
 const getAlldate = (today, lastday) => {
   let dates = [];
@@ -71,7 +69,7 @@ today를 다시 1로 초기화해서 기존의 dates 배열에서부터 today값
 const Calendar = (props) => {
   //변수 생성 오늘과, 이번달의 마지막 날부터 게산
   //const [today, setToday] = useState(now.getDate());
-
+  const now = new Date();
   const todayWeak = now.getDay();
   const today = now.getDate();
   const lastday = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
@@ -108,6 +106,7 @@ const Calendar = (props) => {
   const CalendarObject = [
     { weak: CalendarWeak[0], day: CalendarDay[0] },
     { weak: CalendarWeak[1], day: CalendarDay[1] },
+
     { weak: CalendarWeak[2], day: CalendarDay[2] },
     { weak: CalendarWeak[3], day: CalendarDay[3] },
     { weak: CalendarWeak[4], day: CalendarDay[4] },
@@ -146,8 +145,8 @@ const Calendar = (props) => {
               <div
                 className={cn(
                   "weak",
-                  calendar.weak === "Sun" ? "Sunday" : "weak",
-                  calendar.weak === "Sat" ? "Saturday" : "weak"
+                  calendar.weak === "Sun" ? "Sun" : "weak",
+                  calendar.weak === "Sat" ? "Sat" : "weak"
                 )}
                 ref={Weak}
               >

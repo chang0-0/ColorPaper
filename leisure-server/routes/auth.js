@@ -4,7 +4,6 @@ const db = require("../db");
 const bcrypt = require("bcrypt");
 
 /**
- *
  * @param {fastify.FastifyInstance} fastify
  */
 
@@ -30,6 +29,7 @@ async function authRouter(fastify) {
     });
     return user;
   });
+
   fastify.post("/login", async (request, reply) => {
     const { username, password } = request.body;
     const user = await db.user.findUnique({ where: { username } });
@@ -45,6 +45,10 @@ async function authRouter(fastify) {
     reply.status(401);
     throw new Error("Login failed");
   });
+
+  fastify.post("/integrate", (request, reply) => {});
+
+  fastify.post("/integrate-guest", (request, reply) => {});
 }
 
 module.exports = authRouter;

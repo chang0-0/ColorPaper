@@ -33,7 +33,7 @@ const Login = ({ value }) => {
   );
 };
 
-const Section = styled.section`
+const section = styled.section`
   width: 100%;
   height: 100%;
   align-items: center;
@@ -44,6 +44,7 @@ const Section = styled.section`
   left: 50%;
   top: 40%;
   position: fixed;
+  margin-left: -120px;
 `;
 
 export default Login;

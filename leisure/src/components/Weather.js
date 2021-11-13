@@ -36,7 +36,7 @@ const Weather = (props) => {
   queryParams +=
     "&" + encodeURIComponent("stnId") + "=" + encodeURIComponent("108");
   queryParams +=
-    "&" + encodeURIComponent("tmFc") + "=" + encodeURIComponent("202110040600");
+    "&" + encodeURIComponent("tmFc") + "=" + encodeURIComponent("202110240600");
 
   request(
     {

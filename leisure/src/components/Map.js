@@ -2,7 +2,6 @@
 import React, { useEffect } from "react";
 import cn from "classnames";
 import "../styles/Map.scss";
-import axios from "axios";
 
 const { kakao } = window;
 
