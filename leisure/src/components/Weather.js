@@ -5,28 +5,32 @@ import axios from "axios";
 require("dotenv").config();
 
 const Weather = (props) => {
-  const API_KEY = process.env.REACT_APP_API_KEY;
+  const API_KEY =
+    "=wlrsBsl6RYx%2F%2FIN%2FCzWPqWsN%2BPoja2zo7GMgOCWfpT`zua0%2FomtJZtRaNXBdss%2BhL1MvjLC1fvdZT58JllLSlJw%3D%3D";
   const [data, setData] = useState(null);
   const log = console.log;
   const obj = JSON.parse;
+  const weatherInfo = "";
   //JSON 객체 parse 를 위한 JSON.parse메소드 obj로 지정
 
-  const callAPI = async () => {
-    const response = await axios.get(
-      `http://apis.data.go.kr/1360000/MidFcstInfoService/getMidFcst` +
-        `?serviceKey=${API_KEY}`
-    );
-    setData(response.data);
-    try {
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  // const callAPI = async () => {
+  //   const response = await axios.get(
+  //     `http://apis.data.go.kr/1360000/MidFcstInfoService/getMidFcst` +
+  //       `?serviceKey=${API_KEY}`
+  //   );
+  //   setData(response.data);
+  //   try {
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
 
-  const request = require("request");
+  //const request = require("request");
   const url = "http://apis.data.go.kr/1360000/MidFcstInfoService/getMidFcst";
   let queryParams =
-    "?" + encodeURIComponent("ServiceKey") + `${API_KEY}`; /* Service Key*/
+    "?" +
+    encodeURIComponent("ServiceKey") +
+    `=wlrsBsl6RYx%2F%2FIN%2FCzWPqWsN%2BPoja2zo7GMgOCWfpTzua0%2FomtJZtRaNXBdss%2BhL1MvjLC1fvdZT58JllLSlJw%3D%3D`; /* Service Key*/
   queryParams +=
     "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1");
   queryParams +=
@@ -36,24 +40,32 @@ const Weather = (props) => {
   queryParams +=
     "&" + encodeURIComponent("stnId") + "=" + encodeURIComponent("108");
   queryParams +=
-    "&" + encodeURIComponent("tmFc") + "=" + encodeURIComponent("202110240600");
+    "&" + encodeURIComponent("tmFc") + "=" + encodeURIComponent("202111290600");
 
-  request(
-    {
-      url: url + queryParams,
-      method: "GET",
-    },
-    function (error, response, body) {
-      // JSON 공공 데이터 예시 함수
-      // console.log("error", error);
-      // console.log("Status", response.resultCode);
-      // console.log("Headers", JSON.stringify(response.headers));
-      // console.log("Reponse received", body);
-      const parse_body = obj("body");
-    }
-  );
-  log(request);
-  log(queryParams);
+  // request(
+  //   {
+  //     url: url + queryParams,
+  //     method: "GET",
+  //   },
+  //   function (error, response, body) {
+  //     // JSON 공공 데이터 예시 함수
+  //     // console.log("error", error);
+  //     // console.log("Status", response.resultCode);
+  //     // console.log("Headers", JSON.stringify(response.headers));
+  //     // console.log("Reponse received", body);
+  //     console.log(body);
+  //     const parse_body = obj("body");
+  //   }
+  // );
+  axios
+    .get(url + queryParams)
+    .then(function (response) {
+      console.log(response.data.response.body.items.item[0].wfSv);
+      weatherInfo = response.data.response.body.items.item[0].wfSv;
+    })
+    .catch(function () {
+      console.log("에러");
+    });
 
   useEffect(() => {
     return () => log("clean up");
@@ -61,7 +73,7 @@ const Weather = (props) => {
 
   return (
     <div classnName={cn("Weather")}>
-      <div> {queryParams} </div>
+      <div> {weatherInfo} </div>
     </div>
   );
 };

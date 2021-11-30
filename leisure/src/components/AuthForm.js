@@ -122,7 +122,7 @@ function AuthForm({ isRegister, Buttonname, code }) {
         <StyleButton
           Buttonname={
             isRegister ? (Buttonname = "register") : (Buttonname = "login")
-          }
+        }
         >
           {isRegister ? "Register" : "Login"}
         </StyleButton>

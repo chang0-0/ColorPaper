@@ -1,4 +1,4 @@
-$lightblue: #3ea8ff;
+$lightblue: #3c9ae7;
 $deepblue: #156fb9;
 $darkblue: rgb(12, 86, 129);
 
@@ -10,6 +10,9 @@ $darkblue: rgb(12, 86, 129);
   height: 20vh;
   width: 100%;
   overflow: initial;
+
+  // 테스트용
+  color: #e05a5a;
 
   .Year-MonthList {
     font-family: "SEBANG";
