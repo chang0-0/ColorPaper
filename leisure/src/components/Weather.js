@@ -9,10 +9,10 @@ const Weather = (props) => {
   const [info, setInfo] = useState("");
   const [data, setData] = useState(null);
 
-  const API_KEY = process.env.REACT_APP_API_KEY;
+  const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
   const log = console.log;
-  const obj = JSON.parse;
+  //const obj = JSON.parse;
   const weatherInfo = "";
   //JSON 객체 parse 를 위한 JSON.parse메소드 obj로 지정
 
