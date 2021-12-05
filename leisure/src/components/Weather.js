@@ -25,8 +25,10 @@ const Weather = (props) => {
   //   }
   // };
 
+  // 중기 육상예보
   //const request = require("request");
-  const url = "http://apis.data.go.kr/1360000/MidFcstInfoService/getMidFcst";
+  const url =
+    "http://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst";
   let queryParams =
     "?" +
     encodeURIComponent("ServiceKey") +
@@ -40,7 +42,7 @@ const Weather = (props) => {
   queryParams +=
     "&" + encodeURIComponent("stnId") + "=" + encodeURIComponent("108");
   queryParams +=
-    "&" + encodeURIComponent("tmFc") + "=" + encodeURIComponent("202111290600");
+    "&" + encodeURIComponent("tmFc") + "=" + encodeURIComponent("202112050600");
 
   // request(
   //   {

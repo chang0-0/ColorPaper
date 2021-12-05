@@ -14,7 +14,6 @@ const Mappage = () => {
       <ProgressBar />
       <div className={cn("MappageHeader")}>
         <SidebarMenu className={cn("MappageMenu")} />
-        {/* <span className={cn("HomeLogo")}>ColorPaper</span> */}
         <Logo />
         <span className={cn("MapHeadLine")} />
       </div>
