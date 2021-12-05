@@ -5,9 +5,11 @@ import axios from "axios";
 require("dotenv").config();
 
 const Weather = (props) => {
+  const [info, setInfo] = useState("");
+  const [data, setData] = useState(null);
+
   const API_KEY = process.env.REACT_APP_API_KEY;
 
-  const [data, setData] = useState(null);
   const log = console.log;
   const obj = JSON.parse;
   const weatherInfo = "";
@@ -27,12 +29,11 @@ const Weather = (props) => {
 
   // 중기 육상예보
   //const request = require("request");
-  const url =
-    "http://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst";
+  const url = "http://apis.data.go.kr/1360000/MidFcstInfoService/getMidFcst";
   let queryParams =
     "?" +
     encodeURIComponent("ServiceKey") +
-    "="` + ${API_KEY}`; /* Service Key*/
+    "=wlrsBsl6RYx%2F%2FIN%2FCzWPqWsN%2BPoja2zo7GMgOCWfpTzua0%2FomtJZtRaNXBdss%2BhL1MvjLC1fvdZT58JllLSlJw%3D%3D";
   queryParams +=
     "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1");
   queryParams +=

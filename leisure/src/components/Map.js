@@ -33,6 +33,8 @@ const Map = () => {
     console.log("loading kakaomap");
   }, []);
 
+  console.log("loading kakaomap2");
+
   return (
     <div className={cn("Map")}>
       <div className={cn("MapContainer")} id="map"></div>
