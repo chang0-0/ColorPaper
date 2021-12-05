@@ -24,4 +24,5 @@ yarn-debug.log*
 yarn-error.log*
 
 #API KEY
+./index.html
 .env

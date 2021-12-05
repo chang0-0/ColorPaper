@@ -5,8 +5,8 @@ import axios from "axios";
 require("dotenv").config();
 
 const Weather = (props) => {
-  const API_KEY =
-    "=wlrsBsl6RYx%2F%2FIN%2FCzWPqWsN%2BPoja2zo7GMgOCWfpT`zua0%2FomtJZtRaNXBdss%2BhL1MvjLC1fvdZT58JllLSlJw%3D%3D";
+  const API_KEY = process.env.REACT_APP_API_KEY;
+
   const [data, setData] = useState(null);
   const log = console.log;
   const obj = JSON.parse;
@@ -32,7 +32,7 @@ const Weather = (props) => {
   let queryParams =
     "?" +
     encodeURIComponent("ServiceKey") +
-    `=wlrsBsl6RYx%2F%2FIN%2FCzWPqWsN%2BPoja2zo7GMgOCWfpTzua0%2FomtJZtRaNXBdss%2BhL1MvjLC1fvdZT58JllLSlJw%3D%3D`; /* Service Key*/
+    "="` + ${API_KEY}`; /* Service Key*/
   queryParams +=
     "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1");
   queryParams +=
