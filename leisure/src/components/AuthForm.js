@@ -2,7 +2,6 @@ import React, { useState, useRef, useReducer, useEffect } from "react";
 import { Link } from "react-router-dom";
 import cn from "classnames";
 import styled, { css } from "styled-components";
-import AuthTemplate from "./AuthTemplate";
 import Button from "./Button";
 import LabelInput from "./LabelInput";
 import { customAlphabet } from "nanoid";
@@ -14,7 +13,7 @@ const reducer = (state, action) => {
   };
 };
 
-const nanoid = customAlphabet("01234567899abcdef", 6);
+const nanoid = customAlphabet("01234567899abcedf", 8);
 
 function AuthForm({ isRegister, Buttonname, code }) {
   const [value, setValue] = useState("");
@@ -26,7 +25,7 @@ function AuthForm({ isRegister, Buttonname, code }) {
     code: "",
   });
 
-  // 기존에 원래 쓰던 onChange 지금은 안됨
+  // 기존에 원래 쓰던 onChange 지금은 사용X
   const onChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
@@ -122,7 +121,7 @@ function AuthForm({ isRegister, Buttonname, code }) {
         <StyleButton
           Buttonname={
             isRegister ? (Buttonname = "register") : (Buttonname = "login")
-        }
+          }
         >
           {isRegister ? "Register" : "Login"}
         </StyleButton>
