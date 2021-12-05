@@ -19,7 +19,7 @@ const Map = () => {
 
     // 지도 더블클릭 막아야됨
     //지도 줌, 드래그 잠금 설정
-    // map.setDraggable(false);
+    map.setDraggable(false);
     map.setZoomable(false);
 
     //지도 크기 동적으로 조절
