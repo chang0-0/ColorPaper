@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import cn from "classnames";
 import "../styles/Weather.scss";
 import axios from "axios";
-require("dotenv").config();
+import dotenv from "dotenv";
+dotenv.config({ path: "../.env", encoding: "utf8" });
 
 const Weather = (props) => {
   const [info, setInfo] = useState("");
@@ -30,11 +31,7 @@ const Weather = (props) => {
   // 중기 육상예보
   //const request = require("request");
   const url = "http://apis.data.go.kr/1360000/MidFcstInfoService/getMidFcst";
-  let queryParams =
-    "?" +
-    encodeURIComponent("ServiceKey") +
-    "=" +
-    "wlrsBsl6RYx%2F%2FIN%2FCzWPqWsN%2BPoja2zo7GMgOCWfpTzua0%2FomtJZtRaNXBdss%2BhL1MvjLC1fvdZT58JllLSlJw%3D%3D";
+  let queryParams = "?" + encodeURIComponent("ServiceKey") + "=" + API_KEY;
   queryParams +=
     "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1");
   queryParams +=
