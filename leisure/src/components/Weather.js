@@ -33,7 +33,8 @@ const Weather = (props) => {
   let queryParams =
     "?" +
     encodeURIComponent("ServiceKey") +
-    "=wlrsBsl6RYx%2F%2FIN%2FCzWPqWsN%2BPoja2zo7GMgOCWfpTzua0%2FomtJZtRaNXBdss%2BhL1MvjLC1fvdZT58JllLSlJw%3D%3D";
+    "=" +
+    "wlrsBsl6RYx%2F%2FIN%2FCzWPqWsN%2BPoja2zo7GMgOCWfpTzua0%2FomtJZtRaNXBdss%2BhL1MvjLC1fvdZT58JllLSlJw%3D%3D";
   queryParams +=
     "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1");
   queryParams +=

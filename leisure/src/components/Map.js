@@ -12,7 +12,6 @@ const Map = () => {
 
     let options = {
       center: new window.kakao.maps.LatLng(35.8514, 126.734086),
-
       level: 13,
     };
 
