@@ -1,19 +1,18 @@
-import React, { useState, useEffect } from "react";
-import cn from "classnames";
-import "../styles/Weather.scss";
 import axios from "axios";
+import cn from "classnames";
 import dotenv from "dotenv";
+import React, { useEffect, useState, useCallback } from "react";
+import "../styles/Weather.scss";
 dotenv.config({ path: "../.env", encoding: "utf8" });
 
 const Weather = (props) => {
-  //const [url, setUrl] = useState("");
   const [data, setData] = useState(null);
 
   const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
   const log = console.log;
   //const obj = JSON.parse;
-  //const weatherInfo = [""];
+  const weatherInfo = "";
   //JSON 객체 parse 를 위한 JSON.parse메소드 obj로 지정
 
   const url =
@@ -30,17 +29,22 @@ const Weather = (props) => {
   queryParams +=
     "&" + encodeURIComponent("tmFc") + "=" + encodeURIComponent("202112060600");
 
-  const weather = async () => {
+  const waether_callAPI = async () => {
     try {
       const response = await axios.get(url + queryParams).then((response) => {
         console.log(response.data.response.body.items.item[0]);
         //weatherInfo = response.data.response.body.items.item[0];
+
+        console.log("response 테스트 : " + response);
+        weatherInfo = response.data.response.body.items.item[0];
         setData(response.data.response.body.items.item[0]);
       });
     } catch (e) {
       console.log(e);
     }
   };
+
+  //setData(weatherInfo);
 
   // axios
   //   .get(url + queryParams)
@@ -58,7 +62,7 @@ const Weather = (props) => {
 
   return (
     <div className={cn("Weather")}>
-      <button onClick={weather}>Call_API</button>
+      <button onClick={waether_callAPI}>Call_API</button>
       데이터
       <div value={JSON.stringify(data, null, 2)}>{setData}</div>
     </div>
