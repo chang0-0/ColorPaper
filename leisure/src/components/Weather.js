@@ -13,37 +13,9 @@ const Weather = (props) => {
 
   const log = console.log;
   //const obj = JSON.parse;
-  const weatherInfo = "";
+  const weatherInfo = [""];
   //JSON 객체 parse 를 위한 JSON.parse메소드 obj로 지정
 
-  const weather = async () => {
-    const response = await axios.get(
-      `"http://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst";
-    let queryParams = "?" + encodeURIComponent("ServiceKey") + "=" + API_KEY;
-    queryParams +=
-      "&" + encodeURIComponent("pageNo") + "=" + encodeURIComponent("1");
-    queryParams +=
-      "&" + encodeURIComponent("numOfRows") + "=" + encodeURIComponent("10");
-    queryParams +=
-      "&" + encodeURIComponent("dataType") + "=" + encodeURIComponent("JSON");
-    queryParams +=
-      "&" + encodeURIComponent("regId") + "=" + encodeURIComponent("11B00000");
-    queryParams +=
-      "&" +
-      encodeURIComponent("tmFc") +
-      "=" +
-      encodeURIComponent("202112050600");`
-    );
-
-    setData(response.data);
-    try {
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  // 중기 육상예보
-  //const request = require("request");
   const url =
     "http://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst";
   let queryParams = "?" + encodeURIComponent("ServiceKey") + "=" + API_KEY;
@@ -56,33 +28,29 @@ const Weather = (props) => {
   queryParams +=
     "&" + encodeURIComponent("regId") + "=" + encodeURIComponent("11B00000");
   queryParams +=
-    "&" + encodeURIComponent("tmFc") + "=" + encodeURIComponent("202112050600");
+    "&" + encodeURIComponent("tmFc") + "=" + encodeURIComponent("202112060600");
 
-  // request(
-  //   {
-  //     url: url + queryParams,
-  //     method: "GET",
-  //   },
-  //   function (error, response, body) {
-  //     // JSON 공공 데이터 예시 함수
-  //     // console.log("error", error);
-  //     // console.log("Status", response.resultCode);
-  //     // console.log("Headers", JSON.stringify(response.headers));
-  //     // console.log("Reponse received", body);
-  //     console.log(body);
-  //     const parse_body = obj("body");
-  //   }
-  // );
+  const weather = async () => {
+    try {
+      const response = await axios.get(url + queryParams).then((response) => {
+        console.log(response.data.response.body.items.item[0]);
+        weatherInfo = response.data.response.body.items.item[0];
+        setData(response.data);
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
-  axios
-    .get(url + queryParams)
-    .then(function (response) {
-      console.log(response.data.response.body.items.item[0]);
-      weatherInfo = response.data.response.body.items.item[0];
-    })
-    .catch(function () {
-      console.log("에러");
-    });
+  // axios
+  //   .get(url + queryParams)
+  //   .then(function (response) {
+  //     console.log(response.data.response.body.items.item[0]);
+  //     weatherInfo = response.data.response.body.items.item[0];
+  //   })
+  //   .catch(function () {
+  //     console.log("에러");
+  //   });
 
   useEffect(() => {
     return () => log("clean up");
@@ -90,7 +58,8 @@ const Weather = (props) => {
 
   return (
     <div classnName={cn("Weather")}>
-      <div> {weatherInfo} </div>
+      <button onClick={weather}></button>
+      <div value={JSON.stringify(data, null, 2)}>{data}</div>
     </div>
   );
 };
