@@ -5,7 +5,6 @@ import { IoMdClose } from "react-icons/io";
 import { Link } from "react-router-dom";
 import "../styles/SidebarMenu.scss";
 
-
 const SidebarMenu = () => {
   const [showNav, setShowNav] = useState(false);
   const CloseButton = useRef(null);
@@ -17,14 +16,14 @@ const SidebarMenu = () => {
         <GiHamburgerMenu
           className={cn("SidebarMenuButton")}
           onClick={() => setShowNav(!showNav)}
-          showNav={showNav}
-          ref={OpenButton}
+          //showNav={showNav}
+          //ref={OpenButton}
         />
         <div className={cn(showNav ? "sidebar active" : "sidebar")}>
           <IoMdClose
             className={cn("SidebarMenu_CloseButton")}
-            ref={CloseButton}
-            shownav={showNav}
+            //ref={CloseButton}
+            //shownav={showNav}
             onClick={() => setShowNav(!showNav)}
           />
           <ul className={cn("Hide_SidebarMenuUL")}>

@@ -128,17 +128,23 @@ const Calendar = (props) => {
             <Year
               id="Year"
               format={"YYYY"}
-              ticking={false}
+              //ticking={false}
               timezone={"KR/Pacific"}
             />
           </span>
           &nbsp;&nbsp;
           <span className={cn("Month")}>
-            <Month format={"MMMM"} ticking={false} timezone={"KR/Pacific"} />
+            <Month
+              format={"MMMM"} //ticking={false}
+              timezone={"KR/Pacific"}
+            />
           </span>
         </p>
       </div>
-      <div className={cn("DayList")} onChange={getList} ticking={false}>
+      <div
+        className={cn("DayList")}
+        onChange={getList} //ticking={false}
+      >
         <div className={cn("daylistContainer")}>
           {CalendarObject.map((calendar, index) => (
             <div className={cn("daylistSector")}>
