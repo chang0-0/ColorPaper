@@ -45,7 +45,7 @@ function AuthForm({ isRegister, Buttonname, code }) {
   const inputPW = useRef(null);
 
   const onKeyPress = (e) => {
-    if (e.key == "Enter") {
+    if (e.key === "Enter") {
       //input 필드 비었는지 검사해야됨b
       onClick();
     }
