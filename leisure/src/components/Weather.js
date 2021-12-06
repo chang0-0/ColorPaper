@@ -7,6 +7,7 @@ dotenv.config({ path: "../.env", encoding: "utf8" });
 
 const Weather = (props) => {
   const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
@@ -29,20 +30,22 @@ const Weather = (props) => {
   queryParams +=
     "&" + encodeURIComponent("tmFc") + "=" + encodeURIComponent("202112060600");
 
-  const waether_callAPI = async () => {
-    try {
-      const response = await axios.get(url + queryParams).then((response) => {
-        console.log(response.data.response.body.items.item[0]);
-        //weatherInfo = response.data.response.body.items.item[0];
+  useEffect(() => {
+    const waether_callAPI = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get(url + queryParams).then((response) => {
+          console.log(response.data.response.body.items.item[0]);
+          //weatherInfo = response.data.response.body.items.item[0];
 
-        console.log("response 테스트 : " + response);
-        weatherInfo = response.data.response.body.items.item[0];
-        setData(response.data.response.body.items.item[0]);
-      });
-    } catch (e) {
-      console.log(e);
-    }
-  };
+          console.log("response 테스트 : " + response);
+          setData(response.data.response.body.items.item[0]);
+        });
+      } catch (e) {
+        console.log(e);
+      }
+    };
+  }, []);
 
   //setData(weatherInfo);
 
