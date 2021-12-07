@@ -29,11 +29,15 @@ const Mappage = () => {
 };
 
 const StyledMap = styled.div`
-  background: #ffffff;
+  //background: #ffffff;
   //background: linear-gradient(200deg, rgb(224, 243, 255), rgb(255, 204, 175));
+  //background: linear-gradient(130deg, #ffdddd, rgb(0, 0, 0));
+  background-color: #464646;
+  opacity: 0.9;
   background-size: cover;
   margin: 3px 0 0 0;
   margin-top: 0;
+  z-index: 0;
 `;
 
 export default Mappage;

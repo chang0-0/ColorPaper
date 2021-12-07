@@ -2,6 +2,7 @@ import axios from "axios";
 import cn from "classnames";
 import dotenv from "dotenv";
 import React, { useEffect, useState } from "react";
+import "../styles/Weather.scss";
 import moment from "moment";
 import "moment/locale/ko";
 import usePromise from "../lib/usePromise";
@@ -97,9 +98,9 @@ const Weather = () => {
   //setData(response.data.response.body.items.item[0]);
 
   return (
-    <div className={cn("Weatherclass")}>
+    <div className={cn("Weather")}>
       <h1>테스트</h1>
-      <div>{data}</div>
+      <div className={cn("WeatherData")}>{data}</div>
     </div>
   );
 };
