@@ -61,8 +61,8 @@ const Weather = () => {
         //   console.log(response.data.response.body.items.item);
         //   console.log("response 테스트 : " + response);
         // });
-        console.log(response.data.response.body.items.item);
-        setData(response.data.response.body.items.item);
+        console.log(response.data.response.body.items.item[0]);
+        setData(JSON.stringify(response.data.response.body.items.item));
       } catch (e) {
         console.log(e);
       }
@@ -99,7 +99,7 @@ const Weather = () => {
   return (
     <div className={cn("Weatherclass")}>
       <h1>테스트</h1>
-      <div></div>
+      <div>{data}</div>
     </div>
   );
 };
