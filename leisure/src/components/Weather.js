@@ -5,7 +5,6 @@ import React, { useEffect, useState } from "react";
 import "../styles/Weather.scss";
 import moment from "moment";
 import "moment/locale/ko";
-import usePromise from "../lib/usePromise";
 import "../styles/Weather.scss";
 dotenv.config({ path: "../.env", encoding: "utf8" });
 
