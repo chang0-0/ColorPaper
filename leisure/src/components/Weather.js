@@ -41,14 +41,6 @@ const Weather = () => {
   queryParams +=
     "&" + encodeURIComponent("tmFc") + "=" + encodeURIComponent(time);
 
-  // const [loading, response, error] = usePromise(() => {
-  //   return axios.get(seturl + queryParams).then((response) => {
-  //     console.log(response.data.response.body.items.item[0]);
-  //     //weatherInfo = response.data.response.body.items.item[0];
-  //   });
-  //   setData(response.data);
-  // }, []);
-
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
