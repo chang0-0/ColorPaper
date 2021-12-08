@@ -29,9 +29,9 @@ const Mappage = () => {
 };
 
 const StyledMap = styled.div`
-  //background: #ffffff;
+  background: #ffffff;
   //background: linear-gradient(130deg, #ffdddd, rgb(0, 0, 0));
-  background-color: #464646;
+  //background-color: #464646;
   opacity: 0.9;
   background-size: cover;
   margin: 3px 0 0 0;
