@@ -63,7 +63,7 @@ const Weather = () => {
     waether_callAPI();
   }, []);
 
-  //대기 중일 때
+  //대기 중
   if (loading) {
     return <div> 대 기 중</div>;
   }
