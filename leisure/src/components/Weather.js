@@ -15,7 +15,6 @@ const Weather = () => {
   const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
   const nowTime = moment().format("HH");
-  const setTmfc = "";
   let pm = "18";
   let am = "06";
   let time = "";
