@@ -86,7 +86,6 @@ const Weather = () => {
   //response값이 유효할때
 
   //setData(response.data.response.body.items.item[0]);
-  //setData(response.data.response.body.items.item[0]);
 
   return (
     <div className={cn("Weather")}>
