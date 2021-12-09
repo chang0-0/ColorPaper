@@ -72,8 +72,6 @@ const Weather = () => {
   //   return <div>에러 발생</div>;
   // }
 
-  //setData(weatherInfo);
-
   // axios
   //   .get(url + queryParams)
   //   .then(function (response) {
