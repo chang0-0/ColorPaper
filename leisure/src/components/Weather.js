@@ -85,8 +85,6 @@ const Weather = () => {
   //   });
   //response값이 유효할때
 
-  //setData(response.data.response.body.items.item[0]);
-
   return (
     <div className={cn("Weather")}>
       <h1>테스트</h1>
