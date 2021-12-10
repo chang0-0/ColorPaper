@@ -25,7 +25,7 @@ const Weather = () => {
     time = moment().format("YYYYMMDD") + am + "00";
   }
 
-  console.log(time);
+  //console.log(time);
 
   const seturl =
     "http://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst";
