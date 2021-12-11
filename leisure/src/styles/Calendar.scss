@@ -107,18 +107,11 @@ $darkblue: rgb(12, 86, 129);
         color: black !important;
       }
 
-      .CalendarIconSpan {
-        position: absolute;
-        left: 50%;
-        right: 40%;
-        margin-top: 40px;
-
-        .CalendarIcon {
-          color: #353535;
-          margin-bottom: -12px;
-          font-size: 3rem;
-          text-align: center;
-        }
+      .CalendarIcon {
+        color: #353535 !important;
+        margin-bottom: -12px;
+        font-size: 3rem;
+        text-align: center;
       }
     }
   }
