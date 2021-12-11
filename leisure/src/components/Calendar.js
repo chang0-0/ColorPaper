@@ -29,9 +29,6 @@ const getAlldate = (today, lastday) => {
     }
   }
 
-  //요일 정상적으로 뜨는지 확인해보자
-  //console.log(dates[1].getDay());
-
   return dates;
 };
 
