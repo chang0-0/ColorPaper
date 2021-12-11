@@ -103,7 +103,6 @@ const Calendar = (props) => {
   const CalendarObject = [
     { weak: CalendarWeak[0], day: CalendarDay[0] },
     { weak: CalendarWeak[1], day: CalendarDay[1] },
-
     { weak: CalendarWeak[2], day: CalendarDay[2] },
     { weak: CalendarWeak[3], day: CalendarDay[3] },
     { weak: CalendarWeak[4], day: CalendarDay[4] },
@@ -159,10 +158,10 @@ const Calendar = (props) => {
             </div>
           ))}
         </div>
-      </div>
-      <div className={cn("CalendarIconContainer")}>
-        <span className={cn("CalendarIconText")}>전체 보기</span>
-        <BiCalendar className={cn("CalendarIcon")} />
+        <div className={cn("CalendarIconContainer")}>
+          <span className={cn("CalendarIconText")}>전체 보기</span>
+          <BiCalendar className={cn("CalendarIcon")} />
+        </div>
       </div>
     </div>
   );

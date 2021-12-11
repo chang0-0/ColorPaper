@@ -79,8 +79,8 @@ $darkblue: rgb(12, 86, 129);
         font-size: 0.8em;
         align-items: center; //수직 중앙 정렬
         justify-content: center; //수평 중앙 정렬
-        color: black;
         text-align: center;
+        color: #353535;
         margin-bottom: 20px;
       }
 
@@ -91,24 +91,26 @@ $darkblue: rgb(12, 86, 129);
 
     /* 버튼 이벤트를 위해서 버튼을 만들었지만 
     아이콘에서 이벤트 처리를 하기위해 보이지는 않도록 만들었음 */
-
     .CalendarIconContainer {
       align-items: center; //수직 중앙 정렬
       justify-content: center; //수평 중앙 정렬
       position: absolute;
-      width: 150px;
-      height: 100px;
+      width: 140px;
+      height: 40px;
       font-style: bold;
+      left: 102%;
+      top: -40%;
       cursor: pointer;
-      color: #353535;
+      color: #353535 !important;
 
       .CalendarIconText {
-        font-size: 23px;
+        font-size: 17px;
         color: black !important;
       }
 
       .CalendarIcon {
         color: #353535 !important;
+        font-size: 13px;
         margin-bottom: -12px;
         font-size: 3rem;
         text-align: center;
