@@ -5,6 +5,7 @@ import "../styles/Menu.scss";
 import { FiMenu } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
 import styled from "styled-components";
+
 /*
 ⭐⭐수정해야할 부분
 1. hideMenuSection 클릭시 scale 증가하는데 height만 증가하도록 해야됨
