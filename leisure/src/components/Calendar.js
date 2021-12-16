@@ -38,7 +38,6 @@ const getAllweak = (todayWeak) => {
   let weaklist = [];
 
   //첫번째 오늘 날짜 적용
-
   weaklist[0] = strWeak[todayWeak];
 
   for (let i = 1; i <= 6; i++) {
