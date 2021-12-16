@@ -11,13 +11,11 @@ $darkblue: rgb(12, 86, 129);
   width: 100%;
   overflow: initial;
 
-  // 테스트용
-  color: #e05a5a;
-
   .Year-MonthList {
     font-family: "SEBANG";
     font-style: italic;
     color: #1864ab;
+    color: #000000;
     .Year {
       font-size: 2.4rem;
     }
