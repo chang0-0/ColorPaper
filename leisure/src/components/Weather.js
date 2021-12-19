@@ -6,12 +6,14 @@ import "../styles/Weather.scss";
 import moment from "moment";
 import "moment/locale/ko";
 import "../styles/Weather.scss";
+import { parseJSON } from "date-fns";
 dotenv.config({ path: "../.env", encoding: "utf8" });
 
 // NeweList에 해당함
 const Weather = () => {
   //const [response, setResponse] = useState("기본값");
   const [data, setData] = useState(null);
+  const [weatherData, setWeatherData] = useState(null);
   const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
   const nowTime = moment().format("HH");
@@ -55,7 +57,13 @@ const Weather = () => {
         //   console.log("response 테스트 : " + response);
         // });
         console.log(response.data.response.body.items.item[0]);
-        setData(JSON.stringify(response.data.response.body.items.item));
+
+        const redId = JSON.stringify(
+          response.data.response.body.items.item[0].regId
+        );
+        console.log("redId 테스트 : " + redId);
+
+        setData(JSON.stringify(response.data.response.body.items.item[0]));
       } catch (e) {
         console.log(e);
       }
