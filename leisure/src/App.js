@@ -2,7 +2,6 @@ import React from "react";
 import "./App.scss";
 import { Route } from "react-router-dom";
 import cn from "classnames";
-import axios from "axios";
 import Login2 from "./pages/Login";
 import Map from "./pages/Mappage";
 import Bug from "./pages/Bug";

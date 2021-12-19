@@ -3,17 +3,20 @@ $deepblue: #156fb9;
 $darkblue: rgb(12, 86, 129);
 
 .Weather {
+  position: absolute;
   color: #444444;
   width: 100%;
   height: 100%;
 
   .WeatherData {
     position: relative;
-    height: auto;
-    width: 40px;
-    padding: 40px;
-    right: 80%;
+    width: 50%;
+    left: 50%;
+
     text-align: center;
+    align-items: center;
+    justify-content: center;
+
     font-size: 18px;
     font-family: GowunBatang-Bold;
   }
