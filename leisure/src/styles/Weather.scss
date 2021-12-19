@@ -8,9 +8,13 @@ $darkblue: rgb(12, 86, 129);
   height: 100%;
 
   .WeatherData {
-    position: absolute;
+    position: relative;
+    height: auto;
+    width: 40px;
     padding: 40px;
-    left: 50%;
+    right: 80%;
     text-align: center;
+    font-size: 18px;
+    font-family: GowunBatang-Bold;
   }
 }

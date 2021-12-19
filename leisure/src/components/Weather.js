@@ -1,12 +1,11 @@
 import axios from "axios";
 import cn from "classnames";
 import dotenv from "dotenv";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "../styles/Weather.scss";
 import moment from "moment";
 import "moment/locale/ko";
 import "../styles/Weather.scss";
-import { parseJSON } from "date-fns";
 dotenv.config({ path: "../.env", encoding: "utf8" });
 
 // NeweList에 해당함
@@ -52,16 +51,8 @@ const Weather = () => {
       try {
         setData(null);
         const response = await axios.get(seturl + queryParams);
-        // .then((response) => {
-        //   console.log(response.data.response.body.items.item);
-        //   console.log("response 테스트 : " + response);
-        // });
-        console.log(response.data.response.body.items.item[0]);
 
-        const redId = JSON.stringify(
-          response.data.response.body.items.item[0].regId
-        );
-        console.log("redId 테스트 : " + redId);
+        setWeatherData(JSON.stringify(response.data));
 
         setData(JSON.stringify(response.data.response.body.items.item[0]));
       } catch (e) {
@@ -76,11 +67,6 @@ const Weather = () => {
   if (loading) {
     return <div> 대 기 중</div>;
   }
-  // 에러 발생했을 때
-  // if (error) {
-  //   return <div>에러 발생</div>;
-  // }
-
   // axios
   //   .get(url + queryParams)
   //   .then(function (response) {
@@ -92,10 +78,16 @@ const Weather = () => {
   //   });
   //response값이 유효할때
 
+  // 에러 발생했을 때
+  const weather = JSON.parse(weatherData);
+
+  console.log(weather);
+
   return (
     <div className={cn("Weather")}>
       <h1>테스트</h1>
       <div className={cn("WeatherData")}>{data}</div>
+      <div className={cn("Test")}></div>
     </div>
   );
 };

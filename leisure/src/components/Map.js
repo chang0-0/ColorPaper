@@ -3,13 +3,12 @@ import React, { useEffect } from "react";
 import cn from "classnames";
 import "../styles/Map.scss";
 
-const { kakao } = window;
+//const { kakao } = window;
 
 //카카오 지도 설정 함수
 const Map = () => {
   useEffect(() => {
     let container = document.getElementById("map");
-
     let options = {
       center: new window.kakao.maps.LatLng(35.8514, 126.734086),
       level: 13,
@@ -28,11 +27,7 @@ const Map = () => {
     //   mapContainer.style.width = "340px";
     //   mapContainer.style.height = "650px";
     // };
-
-    console.log("loading kakaomap");
   }, []);
-
-  console.log("loading kakaomap2");
 
   return (
     <div className={cn("Map")}>

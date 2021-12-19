@@ -1,12 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import cn from "classnames";
 import { Link } from "react-router-dom";
 
 const Logo = () => {
-  const onclick = () => {
-    <Link to="" />;
-  };
+  <Link to="" />;
 
   return (
     <StyledLink to="/">
