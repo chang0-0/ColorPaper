@@ -127,28 +127,18 @@ const Weather = () => {
     { day: date[7], weather: condition[7] },
   ];
 
-  // const CalendarObject = [
-  //   { day: date[0] },
-  //   { day: date[1] },
-  //   { day: date[2] },
-  //   { day: date[3] },
-  //   { day: date[4] },
-  //   { day: date[5] },
-  //   { day: date[6] },
-  //   { day: date[7] },
-  // ];
-
   return (
     <div className={cn("Weather")}>
       <div className={cn("WeatherData")}>
         <div className={cn("WeatherRegion")}> 지역 </div>
         {CalendarObject.map((calendar, index) => (
-          <div className={cn("WeatherDayListSection")}>
-            <div className={cn("WeatherDayList")}>{calendar.day}</div>
-            <div className={cn("WeatherDayList")}>{calendar.weather}</div>
-          </div>
+          <span className={cn("WeatherDayListSection")}>
+            <div className={cn("WeatherDayList_Day")}>{calendar.day}</div>
+            <div className={cn("WeatherDayList_Weather")}>
+              {calendar.weather}
+            </div>
+          </span>
         ))}
-        {weather}
       </div>
     </div>
   );
