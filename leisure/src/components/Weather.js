@@ -13,7 +13,7 @@ const makeDate = (today) => {
 
   let i = 0;
   for (i = 0; i <= 4; i++) {
-    date[i] = today + (i + 3) + "오전";
+    date[i] = today + (i + 3) + "일  오전";
   }
 
   for (i = 5; i <= 7; i++) {
@@ -37,26 +37,20 @@ const Weather = () => {
   const now = new Date();
   const today = now.getDate();
 
-  const weatherDayJSON = {
-    day3AM: today + 3 + "오전",
-    day3PM: today + 3 + "오후",
-    day4AM: today + 4 + "오전",
-    day4PM: today + 4 + "오후",
-    day5AM: today + 5 + "오전",
-    day5PM: today + 5 + "오후",
-    day6AM: today + 6 + "오전",
-    day6PM: today + 6 + "오후",
-    day7AM: today + 7 + "오전",
-    day7PM: today + 7 + "오후",
-    day8: today + 8,
-    day9: today + 9,
-    day10: today + 10,
-  };
-
-  const calltest = useEffect(() => {
-    makeDate(today);
-    <h1>테스팅</h1>;
+  useEffect(() => {
+    setDate(makeDate(today));
   }, []);
+
+  const CalendarObject = [
+    { day: date[0] },
+    { day: date[1] },
+    { day: date[2] },
+    { day: date[3] },
+    { day: date[4] },
+    { day: date[5] },
+    { day: date[6] },
+    { day: date[7] },
+  ];
 
   const nowTime = moment().format("HH");
   let pm = "18";
@@ -94,20 +88,6 @@ const Weather = () => {
         setWeatherData(null);
         const response = await axios.get(seturl + queryParams);
 
-        // setWeatherData(
-        //   JSON.stringify(
-        //     response.data.response.body.items.item[0].regId,
-        //     function (key, value) {
-        //       if (typeof value == "string") {
-        //         return value;
-        //       } else {
-        //         return value;
-        //       }
-        //     },
-        //     5
-        //   )
-        // );
-
         setWeatherData(
           JSON.stringify(response.data.response.body.items.item[0])
         );
@@ -136,8 +116,13 @@ const Weather = () => {
   return (
     <div className={cn("Weather")}>
       <h1>테스트</h1>
-      <div className={cn("WeatherData")}>{day}</div>
-      <div className={cn("WeatherData")}>{calltest}</div>
+      <div className={cn("WeatherData")}>
+        {CalendarObject.map((calendar, index) => (
+          <div className={cn("WeatherDayList")}>
+            <div>{calendar.day}</div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
