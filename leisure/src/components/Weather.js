@@ -1,7 +1,7 @@
 import axios from "axios";
 import cn from "classnames";
 import dotenv from "dotenv";
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Weather.scss";
 import moment from "moment";
 import "moment/locale/ko";
@@ -27,11 +27,13 @@ const makeDate = (today) => {
 
 // NeweList에 해당함
 const Weather = () => {
-  //const [response, setResponse] = useState("기본값");
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
-  const [day, setDay] = useState(null);
   const [date, setDate] = useState([]);
+  const [condition, setCondition] = useState([]);
+  const [weather, setWeather] = useState(null);
   const [weatherData, setWeatherData] = useState(null);
+
   const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
   const now = new Date();
@@ -40,17 +42,6 @@ const Weather = () => {
   useEffect(() => {
     setDate(makeDate(today));
   }, []);
-
-  const CalendarObject = [
-    { day: date[0] },
-    { day: date[1] },
-    { day: date[2] },
-    { day: date[3] },
-    { day: date[4] },
-    { day: date[5] },
-    { day: date[6] },
-    { day: date[7] },
-  ];
 
   const nowTime = moment().format("HH");
   let pm = "18";
@@ -78,13 +69,12 @@ const Weather = () => {
   queryParams +=
     "&" + encodeURIComponent("tmFc") + "=" + encodeURIComponent(time);
 
-  const [loading, setLoading] = useState(false);
-
   useEffect(() => {
     const waether_callAPI = async () => {
       setLoading(true);
       try {
         setData(null);
+        setCondition(null);
         setWeatherData(null);
         const response = await axios.get(seturl + queryParams);
 
@@ -93,13 +83,26 @@ const Weather = () => {
         );
 
         setData(JSON.stringify(response.data.response.body.items.item[0]));
-        const test = response.data.response.body.items.item[0];
+        let test = response.data.response.body.items.item[0];
 
-        const dataInfo = ({ wf3Am, rnSt3Am }) => {
-          setDay(`${wf3Am}, ${rnSt3Am}`);
+        // 오전만 추출
+        const dataInfo = async ({
+          wf3Am,
+          wf4Am,
+          wf5Am,
+          wf6Am,
+          wf7Am,
+          wf8,
+          wf9,
+          wf10,
+        }) => {
+          test = `${wf3Am}, ${wf4Am}, ${wf5Am}, ${wf6Am}, ${wf7Am}, ${wf8} , ${wf9} , ${wf10}`;
+          const temp = test.split(",");
+          setWeather(temp);
+          setCondition(temp);
         };
 
-        dataInfo(test);
+        await dataInfo(test);
       } catch (e) {
         console.log(e);
       }
@@ -113,15 +116,39 @@ const Weather = () => {
     return <div> 대 기 중</div>;
   }
 
+  const CalendarObject = [
+    { day: date[0], weather: condition[0] },
+    { day: date[1], weather: condition[1] },
+    { day: date[2], weather: condition[2] },
+    { day: date[3], weather: condition[3] },
+    { day: date[4], weather: condition[4] },
+    { day: date[5], weather: condition[5] },
+    { day: date[6], weather: condition[6] },
+    { day: date[7], weather: condition[7] },
+  ];
+
+  // const CalendarObject = [
+  //   { day: date[0] },
+  //   { day: date[1] },
+  //   { day: date[2] },
+  //   { day: date[3] },
+  //   { day: date[4] },
+  //   { day: date[5] },
+  //   { day: date[6] },
+  //   { day: date[7] },
+  // ];
+
   return (
     <div className={cn("Weather")}>
-      <h1>테스트</h1>
       <div className={cn("WeatherData")}>
+        <div className={cn("WeatherRegion")}> 지역 </div>
         {CalendarObject.map((calendar, index) => (
-          <div className={cn("WeatherDayList")}>
-            <div>{calendar.day}</div>
+          <div className={cn("WeatherDayListSection")}>
+            <div className={cn("WeatherDayList")}>{calendar.day}</div>
+            <div className={cn("WeatherDayList")}>{calendar.weather}</div>
           </div>
         ))}
+        {weather}
       </div>
     </div>
   );
