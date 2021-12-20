@@ -17,7 +17,7 @@ const makeDate = (today) => {
   }
 
   for (i = 5; i <= 7; i++) {
-    date[i] = today + (i + 3);
+    date[i] = today + (i + 3) + "일";
   }
 
   console.log(date);
@@ -53,6 +53,8 @@ const Weather = () => {
   } else {
     time = moment().format("YYYYMMDD") + am + "00";
   }
+
+  //console.log(time);
 
   const seturl =
     "http://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst";
@@ -98,7 +100,8 @@ const Weather = () => {
         }) => {
           test = `${wf3Am}, ${wf4Am}, ${wf5Am}, ${wf6Am}, ${wf7Am}, ${wf8} , ${wf9} , ${wf10}`;
           const temp = test.split(",");
-          setWeather(temp);
+
+          await setWeather(temp);
           setCondition(temp);
         };
 
@@ -111,7 +114,7 @@ const Weather = () => {
     waether_callAPI();
   }, []);
 
-  //대기 중
+  // 대기 중
   if (loading) {
     return <div> 대 기 중</div>;
   }
@@ -125,6 +128,17 @@ const Weather = () => {
     { day: date[5], weather: condition[5] },
     { day: date[6], weather: condition[6] },
     { day: date[7], weather: condition[7] },
+  ];
+
+  const CalendarObject2 = [
+    { day: "테스트", weather: "테스트" },
+    { day: "테스트", weather: "테스트" },
+    { day: "테스트", weather: "테스트" },
+    { day: "테스트", weather: "테스트" },
+    { day: "테스트", weather: "테스트" },
+    { day: "테스트", weather: "테스트" },
+    { day: "테스트", weather: "테스트" },
+    { day: "테스트", weather: "테스트" },
   ];
 
   return (

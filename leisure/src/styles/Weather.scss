@@ -7,17 +7,32 @@ $darkblue: rgb(12, 86, 129);
   color: #363636;
   width: 100%;
   height: 100%;
+  top: 0.33%;
 
   .WeatherData {
     position: relative;
     width: 600px;
     left: 55%;
     font-family: Cafe24SsurroundAir;
-    border: 0.04em solid rgb(0, 0, 0);
+
+    .WeatherRegionDeco {
+      position: absolute;
+      top: 3vh;
+      //left: 28vh;
+      width: 44vw;
+      height: 0.3vh;
+      background: #12203a;
+      //transform: rotate(270deg);
+      padding: 0;
+    }
 
     .WeatherRegion {
-      font-size: 20px;
+      position: relative;
+      width: 160%;
+      left: -10%;
+      font-size: 22px;
       font-weight: bold;
+      margin-top: 30px;
       margin-bottom: 50px;
       font-family: Cafe24Simplehae;
     }
@@ -26,16 +41,23 @@ $darkblue: rgb(12, 86, 129);
       position: relative;
       color: #005096;
       width: 400px;
-      height: 400px;
-      border: 0.04em solid rgb(0, 0, 0);
+      float: left;
+      height: 50px;
+      border-bottom: 0.04em solid rgb(0, 0, 0);
+      margin-bottom: 30px;
+      &:nth-child(1) {
+        margin-top: 30px;
+      }
 
       .WeatherDayList_Day {
         color: rgb(100, 200, 200);
-        margin-bottom: 50px;
+        font-size: 20px;
+        font-weight: bold;
       }
 
       .WeatherDayList_Weather {
         color: $deepblue;
+        font-size: 17px;
         margin-bottom: 50px;
       }
     }
