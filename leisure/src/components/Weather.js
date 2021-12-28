@@ -11,17 +11,28 @@ dotenv.config({ path: "../.env", encoding: "utf8" });
 const makeDate = (today) => {
   let date = [];
 
-  let i = 0;
+  // 해당 월의 마지막 일 구하기.
+  const time = new Date();
+  console.log(time);
+
+  let month = time.getMonth() + 1;
+  console.log(month);
+
+  let i = 3;
+  let j = 0;
   for (i = 0; i <= 4; i++) {
-    date[i] = today + (i + 3) + "일  오전";
+    j = i;
+
+    date[i] = today + j + "일  오전";
   }
 
   for (i = 5; i <= 7; i++) {
-    date[i] = today + (i + 3) + "일";
+    date[i] = today + j + "일";
   }
 
-  console.log(date);
+  console.log("makeDate 함수 : " + date);
 
+  // 날짜를 담은 배열을 전달하면 됨.
   return date;
 };
 
@@ -53,8 +64,6 @@ const Weather = () => {
   } else {
     time = moment().format("YYYYMMDD") + am + "00";
   }
-
-  //console.log(time);
 
   const seturl =
     "http://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst";
