@@ -130,17 +130,6 @@ const Weather = () => {
     { day: date[7], weather: condition[7] },
   ];
 
-  const CalendarObject2 = [
-    { day: "테스트", weather: "테스트" },
-    { day: "테스트", weather: "테스트" },
-    { day: "테스트", weather: "테스트" },
-    { day: "테스트", weather: "테스트" },
-    { day: "테스트", weather: "테스트" },
-    { day: "테스트", weather: "테스트" },
-    { day: "테스트", weather: "테스트" },
-    { day: "테스트", weather: "테스트" },
-  ];
-
   return (
     <div className={cn("Weather")}>
       <div className={cn("WeatherData")}>
