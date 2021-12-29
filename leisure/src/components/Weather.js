@@ -17,18 +17,21 @@ const makeDate = (today) => {
   let max_day = new Date(time.getFullYear(), month, 0).getDate();
 
   let i = 0;
+  let temp = 0;
   for (i = 0; i <= 4; i++) {
-    let temp = today + (i + 3);
+    temp = today + (i + 3);
 
     if (temp > max_day) {
       temp = temp - max_day;
     }
 
-    date[i] = today + temp + "일  오전";
+    console.log(" temp : " + temp);
+
+    date[i] = temp + "일  오전";
   }
 
   for (i = 5; i <= 7; i++) {
-    date[i] = today + (i + 3) + "일";
+    date[i] = temp + "일";
   }
 
   console.log("makeDate 함수 : " + date);
