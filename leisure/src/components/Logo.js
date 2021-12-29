@@ -18,7 +18,7 @@ const StyledLink = styled(Link)`
 
 const StyledLogo = styled.span`
   height: 30px;
-  font-size: 5.2vh;
+  font-size: 45px;
   font-family: "Roboto Bold";
   color: white;
   border-radius: 2px;
