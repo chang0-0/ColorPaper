@@ -1,10 +1,9 @@
 import axios from "axios";
 import cn from "classnames";
 import dotenv from "dotenv";
-import React, { useEffect, useState } from "react";
-import "../styles/Weather.scss";
 import moment from "moment";
 import "moment/locale/ko";
+import React, { useEffect, useState, useMemo } from "react";
 import "../styles/Weather.scss";
 dotenv.config({ path: "../.env", encoding: "utf8" });
 
@@ -25,16 +24,18 @@ const makeDate = (today) => {
       temp = temp - max_day;
     }
 
-    console.log(" temp : " + temp);
-
     date[i] = temp + "일  오전";
   }
 
   for (i = 5; i <= 7; i++) {
+    temp = today + (i + 3);
+
+    if (temp > max_day) {
+      temp = temp - max_day;
+    }
+
     date[i] = temp + "일";
   }
-
-  console.log("makeDate 함수 : " + date);
 
   // 날짜를 담은 배열을 전달하면 됨.
   return date;
@@ -50,7 +51,6 @@ const Weather = () => {
   const [weatherData, setWeatherData] = useState(null);
 
   const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
-
   const now = new Date();
   const today = now.getDate();
 
@@ -58,16 +58,29 @@ const Weather = () => {
     setDate(makeDate(today));
   }, []);
 
+  const dateTest = useMemo(() => makeDate(today), [today]);
+
+  // 현재시간.
   const nowTime = moment().format("HH");
   let pm = "18";
   let am = "06";
-  let time = "";
+  let ymd = moment().format("YYYYMMDD");
+  let time = parseInt(nowTime);
 
-  if (nowTime >= parseInt(pm) || nowTime < parseInt(am)) {
-    time = moment().format("YYYYMMDD") + pm + "00";
+  // 0시에서 06시 사이 일경우 전날의 18시를 기준으로 함.
+  if (nowTime >= 0 && nowTime < 6) {
+    let yesterday = new Date(now.setDate(now.getDate() - 1)); // 어제
+    yesterday = moment(yesterday).format("YYYYMMDD");
+    time = yesterday;
+  } else if (nowTime >= parseInt(pm) || nowTime < parseInt(am)) {
+    time = ymd + pm + "00";
   } else {
-    time = moment().format("YYYYMMDD") + am + "00";
+    time = ymd + am + "00";
   }
+
+  // 다음날 기준을 06시를 기준으로
+  // 24시간이 넘어가도 전날 18시의 데이터를 기준으로 변경
+  console.log(time);
 
   const seturl =
     "http://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst";
@@ -101,6 +114,7 @@ const Weather = () => {
         let test = response.data.response.body.items.item[0];
 
         // 오전만 추출
+        // 오후는 추후에 따로 추출예정
         const dataInfo = async ({
           wf3Am,
           wf4Am,
